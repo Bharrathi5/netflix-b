@@ -1,0 +1,8 @@
+export const LOGO_URL=
+   "https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
+
+export const USER_AVATAR= 
+   "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.jpg"
+
+export const BACKGROUND_IMG= 
+   "https://assets.nflxext.com/ffe/siteui/vlv3/04bef84d-51f6-401e-9b8e-4a521cbce3c5/null/IN-en-20240903-TRIFECTA-perspective_0d3aac9c-578f-4e3c-8aa8-bbf4a392269b_small.jpg"
