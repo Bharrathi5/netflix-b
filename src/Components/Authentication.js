@@ -1,16 +1,23 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header'
+import { BACKGROUND_IMG, USER_AVATAR } from '../utils/constants'
 import { validData } from '../utils/validation';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
 
 
 const Authentication = () => {
   
   const [isSignIn, setIsSignIn] = useState(true);
   const [errMessage, setErrMessage] = useState(null);
+  
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const userName = useRef(null);
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
   
@@ -21,38 +28,47 @@ const Authentication = () => {
     const message = validData(email.current.value, password.current.value);
     setErrMessage(message);
     if(message) return;
+
+    if (!isSignIn){
+
+      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+          .then((userCredential) => { 
+              const user = userCredential.user;
+              updateProfile(user, {
+                displayName: name.current.value, photoURL: USER_AVATAR
+              }).then(() => {
+                  const {uid, email, displayName, photoURL: photoURL}= auth.currentUser;
+                  dispatch(addUser({uid: uid, email: email, displayName: displayName, photoURL: photoURL}));
+                navigate("/browse");
+              }).catch((error) => {
+                setErrMessage(error.message)
+              });
+            })
+            .catch((error) => {
+              const errorMessage = error.message;
+              setErrMessage(errorMessage);
+                  });
+  
+    }else{
+      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        navigate("/browse")
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setErrMessage(errorMessage);
+      });
+    }
   }
-
-  if (!isSignIn){
-
-    createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
-        .then((userCredential) => { 
-            const user = userCredential.user;
-          })
-          .catch((error) => {
-            const errorMessage = error.message;
-            setErrMessage(errorMessage);
-                });
-
-  }else{
-    // signInWithEmailAndPassword(auth, email.current.value, password.current.value)
-    // .then((userCredential) => {
-    //   const user = userCredential.user;
-    // })
-    // .catch((error) => {
-    //   const errorMessage = error.message;
-    //   setErrMessage(errorMessage);
-    // });
-  }
-
 
   return (
-    <div>
+    <div className='relative overflow-hidden bg-cover bg-no-repeat h-screen' style={{backgroundImage: `url(${BACKGROUND_IMG})`}}>
       <Header/>
           <div className ='w-4/12 mx-auto '>
-            <form onSubmit = {(e) => e.preventDefault()} className ='flex flex-col justify-center items-baseline text-white bg-black/75 h-auto m-10 p-10'>
+            <form onSubmit ={(event) => event.preventDefault()} className ='flex flex-col justify-center items-baseline text-white bg-black/75 h-auto m-10 p-10'>
               <h1 className='text-white font-bold text-3xl text-center m-5 pb-5'>{isSignIn ? "Sign In" : "Sign Up"}</h1>
-              {!isSignIn && (<input ref={userName} type='text' placeholder='Full Name' className='w-4/5 p-3 m-3 bg-transparent border-2'/>)}
+              {!isSignIn && (<input ref={name} type='text' placeholder='Full Name' className='w-4/5 p-3 m-3 bg-transparent border-2'/>)}
               <input ref={email} type='text' placeholder='Email Address' className='w-4/5 p-3 m-3 bg-transparent border-2'/>
               <input ref={password} type='password' placeholder='Password' className=' w-4/5 p-3 m-3 bg-transparent border-2'/>
               <p className='text-gray-500 font-medium text-sm'>{errMessage}</p>
