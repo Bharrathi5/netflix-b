@@ -23,4 +23,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Creating features
   -toggling of sign in and sign up form in authentication page
   -Authentication of user : Validation using testing regex and updating error message using state variable
+  -Firebase set up - Login, initialize project, run build and deploy(hoisting)
+  
 
