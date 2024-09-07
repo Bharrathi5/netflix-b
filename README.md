@@ -6,8 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Creating components
   -Authentication page
-     -Sign up page
-     - sign in page
+     -Sign up / Sign In
   -Browse page
       -Header
          -logo
@@ -21,4 +20,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
      -Suggested movies
        -Movie cards
 
+# Creating features
+  -toggling of sign in and sign up form in authentication page
+  -Authentication of user : Validation using testing regex and updating error message using state variable
 
