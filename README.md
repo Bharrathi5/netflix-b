@@ -27,4 +27,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   -Redux store configuration for user slice.
   -Optimisation of navigation through onauthstatechange
   -TMDB registration and get acess API key to fetchmovies.
-  -Fetch NowPlayng movies data
+  -Fetch NowPlaying movies data 
+  -create movieslice and add the nowplaying reducer to appstore
+  -
