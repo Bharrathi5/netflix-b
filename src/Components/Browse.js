@@ -2,19 +2,21 @@ import React, { useEffect } from 'react'
 import Header from './Header'
 import TrendingMovie from './TrendingMovie'
 import ListContainer from './ListContainer'
-import { API_OPTIONS } from '../utils/constants'
+import useNowPlaying from '../hooks/useNowPlaying'
+import useTrending from '../hooks/useTrending'
+import usePopular from '../hooks/usePopular'
+import usePopularTv from '../hooks/usePopularTv'
+import useTopRated from '../hooks/useTopRated'
+import useTopRatedTv from '../hooks/useTopRatedTv'
 
 const Browse = () => {
 
-  const getNowPlaying = async () => {
-    const data = await fetch('https://api.themoviedb.org/3/movie/now_playing?page=1', API_OPTIONS);
-    const json = await data.json();
-    console.log(json);}
-
-  useEffect( () => {
-    getNowPlaying()
-    },
- []);
+  useNowPlaying();
+  useTrending();
+  usePopular();
+  usePopularTv();
+  useTopRated();
+  useTopRatedTv();
 
   return (
     <div>

@@ -15,3 +15,5 @@ export const API_OPTIONS = {
    }
  };
 
+ export const IMG_LINK = "http://image.tmdb.org/t/p/w500"
+

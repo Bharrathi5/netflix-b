@@ -38,7 +38,7 @@ const Header = () => {
    [])
 
   return (
-    <div className='h-auto z-20 sticky top-0 w-screen bg-gradient-to-b from-black  flex justify-between'>  
+    <div className='h-auto z-20 absolute top-0 w-screen bg-gradient-to-b from-black  flex justify-between'>  
       {user ? <img className='w-36 p-4 mx-10' alt= "netflixlogo" src= {LOGO_URL}/> : <img className='w-52 p-4 mx-14 mt-8' alt= "netflixlogo" src= {LOGO_URL}/>}
       {user && <div className='grid grid-flow-col items-center mx-10'>
         <img className='w-16 p-4 mx-10' alt= "userlogo" src= {user?.photoURL}/>
