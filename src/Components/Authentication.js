@@ -4,7 +4,6 @@ import { BACKGROUND_IMG, USER_AVATAR } from '../utils/constants'
 import { validData } from '../utils/validation';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 
@@ -13,8 +12,7 @@ const Authentication = () => {
   
   const [isSignIn, setIsSignIn] = useState(true);
   const [errMessage, setErrMessage] = useState(null);
-  
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const name = useRef(null);
@@ -38,8 +36,7 @@ const Authentication = () => {
                 displayName: name.current.value, photoURL: USER_AVATAR
               }).then(() => {
                   const {uid, email, displayName, photoURL: photoURL}= auth.currentUser;
-                  dispatch(addUser({uid: uid, email: email, displayName: displayName, photoURL: photoURL}));
-                navigate("/browse");
+                  dispatch(addUser({uid: uid, email: email, displayName: displayName, photoURL: photoURL}));              
               }).catch((error) => {
                 setErrMessage(error.message)
               });
@@ -53,7 +50,6 @@ const Authentication = () => {
       signInWithEmailAndPassword(auth, email.current.value, password.current.value)
       .then((userCredential) => {
         const user = userCredential.user;
-        navigate("/browse")
       })
       .catch((error) => {
         const errorMessage = error.message;
