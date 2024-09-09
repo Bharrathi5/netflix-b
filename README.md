@@ -30,3 +30,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   -Fetch NowPlaying movies data 
   -create movieslice and add the nowplaying reducer to appstore
   -
+
+
+
+
+
+
+
+  <iframe width="1536" height="864" src="https://www.youtube.com/embed/Icnysn53neU?list=TLGGCw2y1LGGWV8wODA5MjAyNA" title="Borderlands (2024) Final Trailer – Cate Blanchett, Kevin Hart, Jack Black" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <iframe class="w-screen aspect-video scale-150" src="https://www.youtube.com/embed/Icnysn53neU?&amp;autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;rel=0&amp;playlist=Icnysn53neU" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>

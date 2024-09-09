@@ -8,8 +8,13 @@ import usePopular from '../hooks/usePopular'
 import usePopularTv from '../hooks/usePopularTv'
 import useTopRated from '../hooks/useTopRated'
 import useTopRatedTv from '../hooks/useTopRatedTv'
+import GptResult from './GptResult'
+import { useSelector } from 'react-redux'
+import SearchPage from './SearchPage'
 
 const Browse = () => {
+   
+  const showSearch = useSelector((store) => store.search.showSearch);
 
   useNowPlaying();
   useTrending();
@@ -21,8 +26,12 @@ const Browse = () => {
   return (
     <div>
         <Header/>
-        <TrendingMovie/>
-        <ListContainer/>
+        {showSearch ? (<SearchPage/>) : 
+         (<>
+           <TrendingMovie/>
+           <ListContainer/>
+         </>)
+        }
     </div>
   )
 }
