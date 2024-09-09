@@ -17,3 +17,4 @@ export const API_OPTIONS = {
 
  export const IMG_LINK = "http://image.tmdb.org/t/p/w500"
 
+export const OPENAI_KEY = process.env.REACT_APP_OPENIAI_API_KEY;

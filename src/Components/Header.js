@@ -13,7 +13,8 @@ const Header = () => {
 
   const dispatch= useDispatch();
   const navigate= useNavigate();
-  const user= useSelector(store => store.user)
+  const user= useSelector((store) => store.user);
+  const search= useSelector((store) => store.search.showSearch);
  
   const handleSearch = () => {
       dispatch(toggleSearch());
@@ -46,7 +47,7 @@ const Header = () => {
     <div className='h-auto z-20 absolute top-0 w-screen bg-gradient-to-b from-black  flex justify-between'>  
       {user ? <img className='w-36 p-4 mx-10' alt= "netflixlogo" src= {LOGO_URL}/> : <img className='w-52 p-4 mx-14 mt-8' alt= "netflixlogo" src= {LOGO_URL}/>}
       {user && <div className='grid grid-flow-col items-center mx-10'>
-                 <button type="button" onClick={handleSearch}  className= " text-white  bg-transparent border-2 hover:bg-neutral-600  rounded-lg w-24 h-10">Ask GPT</button>
+                 <button type="button" onClick={handleSearch}  className= " text-white  bg-transparent border-2 hover:bg-neutral-600  rounded-lg w-24 h-10">{search? "Home Page":"Ask GPT"}</button>
                  <img className='w-16 p-4 mx-10' alt= "userlogo" src= {user?.photoURL}/>
                  <button type="button" onClick={handleSignout}  className= " text-white  bg-red-700 hover:bg-red-800  rounded-lg w-24 h-10">Signout</button>
                </div>}
