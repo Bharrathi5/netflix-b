@@ -5,22 +5,22 @@ const SearchBar = () => {
     
     const searchText = useRef(null);
 
-    const handleSearch = async() => {
+    // const handleSearch = async() => {
 
-      const queryText = "Act as a Movie recommendation system and suggest movies for given title or people or genre" +
-                   searchText.current.value + 
-                   "Suggest only 5 movie name titles as comma separated text. Example: Inside out, Moana, cars, toy story, Tangled "
+    //   const queryText = "Act as a Movie recommendation system and suggest movies for given title or people or genre" +
+    //                searchText.current.value + 
+    //                "Suggest only 5 movie name titles as comma separated text. Example: Inside out, Moana, cars, toy story, Tangled "
 
-      const gptResult = await openai.chat.completions.create({
-                         model: "gpt-3.5-turbo",
-                         messages: [
-                         { role: "system", content: queryText },
-                         ],
-                  });
+    //   const gptResult = await openai.chat.completions.create({
+    //                      model: "gpt-3.5-turbo",
+    //                      messages: [
+    //                      { role: "system", content: queryText },
+    //                      ],
+    //               });
 
-      console.log(gptResult.choices[0]?.message?.content);
+    //   console.log(gptResult.choices[0]?.message?.content);
 
-    }
+    // }
     
     
     return (
