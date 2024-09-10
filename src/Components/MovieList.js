@@ -4,7 +4,7 @@ import MovieCards from './MovieCards';
 const MovieList = ({title, movie}) => {
 
   return (
-    <div className='flex flex-col gap-6 mx-10'>
+    <div className='flex flex-col gap-6 mx-14'>
       <h1 className=' font-bold text-2xl text-white'>{title}</h1>
         <div className='flex overflow-x-scroll'>
           <div className='flex gap-3'>

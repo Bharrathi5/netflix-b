@@ -3,7 +3,7 @@ import React from 'react'
 const TrendingMovieTitle = ( {title, overview}) => {
   
   return (
-    <div className=' absolute flex flex-col gap-5 mx-14 bottom-36 left-0'>
+    <div className=' absolute flex flex-col gap-5 mx-14 bottom-48 left-0'>
        <h1 className='text-5xl font-bold text-white'> {title} </h1>
        <p className='text-[17px] w-2/6 font-semibold text-white'> {overview} </p>
        <div className='flex gap-3 mt-3'>
