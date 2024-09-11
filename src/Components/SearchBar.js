@@ -24,9 +24,9 @@ const SearchBar = () => {
     
     return (
       <div className='flex justify-center'>
-          <form  onSubmit ={(event) => event.preventDefault()} className='m-36 text-white'>
-            <input ref={searchText} type='text' placeholder='Ask GPT for Movie Recommendations' className='p-3 m-3 w-96 bg-transparent border-2 rounded-lg'/>
-            <button type="button" className= "text-black font-semibold bg-slate-400 hover:bg-neutral-600  rounded-lg w-24 h-12">Search</button>
+          <form  onSubmit ={(event) => event.preventDefault()} className='mt-28 md:m-36 flex text-white'>
+            <input ref={searchText} type='text' placeholder='Ask GPT for Movie Recommendation' className='p-3 m-3 w-72 md:w-96 bg-transparent border-2 rounded-lg'/>
+            <button type="button" className= "text-black font-semibold bg-slate-400 hover:bg-neutral-600  rounded-lg p-3 m-3 md:w-24 h-12">Search</button>
           </form>  
       </div>
     )

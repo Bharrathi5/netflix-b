@@ -23,7 +23,7 @@ const Browse = () => {
   useTopRatedTv();
 
   return (
-    <div>
+    <div className='flex flex-col'>
         <Header/>
         {showSearch ? (<SearchPage/>) : 
          (<>

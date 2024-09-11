@@ -14,7 +14,7 @@ const { title, id, overview } = trendingMovie;
 
 
   return (
-    <div>
+    <div className='flex flex-col w-screen'>
         <TrendingMovieTitle title={title} overview={overview}/>
         <TrendingVideo movie_id={id} />
     </div>

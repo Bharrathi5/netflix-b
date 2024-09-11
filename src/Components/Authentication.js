@@ -61,7 +61,7 @@ const Authentication = () => {
   return (
     <div className='overflow-hidden bg-cover bg-no-repeat h-screen' style={{backgroundImage: `linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(${BACKGROUND_IMG})`}}>
       <Header/>
-      <div className ='mt-44 h-auto w-2/6 mx-auto '>
+      <div className ='mt-56 md:mt-44 h-auto w-2/3 md:w-2/6 mx-auto '>
         <form onSubmit ={(event) => event.preventDefault()} className ='flex flex-col justify-center items-center text-white bg-black/75 h-auto  p-10'>
           <h1 className='text-white font-bold text-3xl text-center m-5 pb-5'>{isSignIn ? "Sign In" : "Sign Up"}</h1>
           {!isSignIn && (<input ref={name} type='text' placeholder='Full Name' className='w-4/5 p-3 m-3 bg-transparent border-2'/>)}

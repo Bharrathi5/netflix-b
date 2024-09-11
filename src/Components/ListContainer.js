@@ -7,7 +7,7 @@ const ListContainer = () => {
   const movies = useSelector((store) => store.movies);
 
   return (
-    <div className='bg-black flex flex-col gap-12 -mt-44'>
+    <div className='bg-black flex flex-col gap-12 w-screen'>
         <MovieList title={"Now Playing"} movie={movies.nowPlaying}/>
         <MovieList title={"Trending"} movie={movies.trending}/>
         <MovieList title={"Popular Movies"} movie={movies.popular} />
